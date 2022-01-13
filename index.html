@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>dselegent</title>
     <style>
         .xiangWan {
             display: flex;
@@ -14,17 +14,93 @@
             margin: 0 auto;
         }
     </style>
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .lzh {
+            margin: 0 auto;
+            height: 480px;
+            width: 640px;
+
+
+        }
+
+        .control {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            width: 100px;
+            height: 50px;
+        }
+
+        video {
+            height: 100%;
+            width: 100%;
+        }
+
+
+        @media only screen and (max-width: 500px) {
+            .lzh {
+                margin: 100px auto;
+                height: 35vh;
+                width: 100vw;
+            }
+
+            video {
+                height: 100%;
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="xiangWan">
+   <!-- <div class="xiangWan">
         <div class="xiangWanLeft">
             <img src="./学习.assets/向晚LEFT GIF.gif" alt="">
         </div>
         <div class="xiangWanRight">
             <img src="./学习.assets/向晚 RIGHT GIF.gif" alt="">
         </div>
+    </div>-->
+        <div class="lzh">
+        <video src="" controls loop>
+            您的浏览器不支持 HTML5 video 标签</video>
+        <div class="control">
+            <button id="prev">上一个</button>
+            <button id="next">下一个</button>
+        </div>
+
     </div>
+    <script>
+        const videoList = ['12-1_HN19-1897488440_01.webm', '12-1_HN19-1897488440_02.webm']
+        let prev = document.querySelector('#prev')
+        let next = document.querySelector('#next')
+        let video = document.querySelector('video')
+        let body = window.document.body;
+        let num = 0;
+
+        addVideoSrc();
+        next.onclick = function () {
+            num++;
+            if (num > 1) num = 0;
+            addVideoSrc()
+        }
+        prev.onclick = function () {
+            num--;
+            if (num < 0) num = 1;
+            addVideoSrc()
+        }
+        function addVideoSrc() {
+            video.src = videoList[num];
+
+        }
+    </script>
 </body>
 
 </html>
